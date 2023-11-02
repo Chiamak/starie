@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Wig sales, Starie Hair Luxury, Weavons, Affordable wigs, Promo sales for wigs">
+    <meta name="description" content="Starie's Hair luxury is an ecommerce shop that sells quality wigs at affordable prices. They run promos and fast delivery.">
+    <title>Starie Product</title>
+    <link rel="stylesheet" href="pro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="Logo (2).png">
+    <style>
+        body{
+            margin:0 auto;
+            font-family: poppins;
+            overflow-x: hidden;
+            width:100%;
+        }
+        body::-webkit-scrollbar{
+            background-color: black;
+            width:10px;
+        }
+        body::-webkit-scrollbar-thumb{
+            border-radius:20px;
+            background-color: gold;
+        }
+        .auth, .payment{
+            background-color: whitesmoke;
+            position: absolute;
+            top:50vh;
+            width:30%;
+            left:35%;
+            height: max-content;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            z-index: 10;
+            transition: all 0.3s ease-in-out;
+            transform: translateY(-100%) scaleY(0);
+        }
+        .auth.active, .payment.active{
+            transform: translateY(-40%) scaleY(1);
+        }
+        .auth input{
+            all:unset;
+            width:80%;
+            margin:10px 10%;
+            padding:10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            font-family: poppins;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .auth button{
+            width:70px;
+            text-align: center;
+            padding:6px;
+            border-radius: 20px;
+            color:rgb(226, 199, 42);
+            background-color: rgb(20, 18, 18);
+            font-size: 13px;
+            margin:3vh 40%;
+        }
+        #auth-message{
+            margin:1vh 0;
+            width:100%;
+        }
+        #set{
+            text-align: center;
+            font-size: 18px;
+            color:goldenrod;
+            visibility: hidden;
+        }
+        #auth-message button{
+            all: unset;
+            font-weight: bolder;
+            font-size: 20px;
+            margin-right: 5%;
+        }
+        .promo{
+            background-color: rgb(241, 211, 35);
+            height: max-content;
+            padding:20px 0 0 20px;
+            box-sizing: border-box;
+            margin:0 0 4vh 0;
+        font-family: nunito;
+        }
+        .promo-not h1{
+            text-align: center;
+            font-size: 40px;
+            color:rgb(175, 39, 39);
+        font-weight: bolder;
+        }
+        .p1{
+            color:rgb(230, 15, 15);
+        }
+        .p2{
+            color: darkred;
+        }
+        .promo-not{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            margin:4vh 0 0 0;
+        }
+        .promo-not article{
+            width:55%;
+            padding:0px 40px 0 40px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .promo-not article h2{
+            font-family: roboto;
+            font-size: 50px;
+            text-transform: capitalize;
+            text-align: center;
+        font-weight: bolder;
+        }
+        .promo-not article p{
+            color:rgb(44, 19, 19);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 25px;
+        }
+        .bg{
+            background-image: url('woman-2.png');
+            background-position: center;
+            background-size: cover;
+            width:45%;
+            height:55vh;
+            background-color: red;
+            -webkit-clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+            clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+        }
+        @media all and (max-width: 1000px) and (min-width: 300px) {
+            .auth, .payment{
+                width: 90%;
+                left:5%;
+            }
+            .bg{
+                display:none;
+            }
+            .promo{
+                padding:20px 20px;
+            }
+            .promo-not article{
+                width:100%;
+            }
+            .promo-not article h2{
+                font-size: 28px;
+            }
+            .promo-not h1{
+                font-size:23px;
+                word-spacing: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="auth" id="auth" >
+            <div id="auth-message">
+                <h4 id="set">Submitted Successfully!</h4>
+                <button onclick="shutDown()">&times;</button>
+            </div>
+            <form class="form">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="phone" placeholder="Phone" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <nav class="nav">
+		<ul class="menu1">
+            <li><img src="Logo (2).png" alt="Wigs for sale"></li>
+            <li><h1>Starie Luxury Hairs</h1></li>
+		</ul>
+		<ul class="menu2">
+			<li><a href="index.html" target="_blank"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+			<li><a href="wa.link/yvtg6l" target="_blank"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
+			<li><i class="fa fa-shopping-cart" aria-hidden="true" onclick="seeCart()"></i> <span id="count">0</span></li>
+		</ul>
+	</nav>
+    <section class="box">
+        <div class="promo">
+            <div class="promo-not">
+                <article>
+                    <h1>PROMO!! <span class="p1">PROMO!!</span> <span class="p2">PROMO!!</span></h1>
+                    <h2>Ember sales is here!</h2>
+                   <p>Get your wigs at slashed prizes.
+                    Choose the quantity you want & add to cart. Send receipt of payment to  09067763433.
+                </article>
+                <div class="bg"></div>
+            </div>
+        </div>
+        <section class="products">
+        </section>
+        <div class="order-box">
+            <h2>Cart <span id="counta">0</span></h2>
+            <div id="items">
+                
+            </div>
+            <hr>
+            <div class="tots">
+                <h3>Total: </h3>
+                <p>&#8358;<span id="total"></span>. 00</p>
+            </div>
+            <div class="o-b">
+                <button id="chckbtn">Checkout</button>
+            </div>
+        </div>
+        <div id="loader">
+            <img src="Logo (2).png" alt="STARIE">
+        </div>
+        <div class="payment" id="payment">
+            <div class="close">
+                <h2>Payment Process</h2>
+                <button onclick="shutDo()">&times;</button>
+            </div>
+            <div class="pay">
+                <div class="paystack">
+                    <h3>Pay with Paystack</h3>
+                    <a href="https://paystack.com/pay/lkvscwko23" target="_self"><img src="pays.png" alt="Paystack Logo"></a>
+                </div>
+                <hr>
+                <div class="transfer">
+                    <h3>Electronic Transfer</h3>
+                    <p>Account number: <span>0124882333</span></p>
+                    <p>Account name: <span>STARIE LUXURY HAIRS</span></p>
+                    <p>Bank: <span>Wema Bank</span></p>
+                    <p>Send receipt: <span>+234 903 039 8322</span></p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer" id="contact">
+            <div class="foot1">
+                <img src="Logo (2).png" alt="logo">
+                <h2>Stairie Luxury Hairs</h2>
+                <hr>
+                <p>Phone: 090 3039 8322</p> 
+            </div>
+             <div class="foot2">
+                <h3>LINKS</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+                <p>&copy; Copyright @ 2023</p>
+            </div>
+            <div class="foot3">
+                <form method="post" action="form">
+                        <input type="text" placeholder="Email address">
+                        <button><a href="mailto:Stariebeauty23@gmail.com?cc=tobijoshua17@gmail.com&subject=Offers Available">SUBSCRIBE</a></button>
+                    </form>
+            </div>
+            <div class="img-set">
+                <a href="https://web.facebook.com/search/top?q=starie%20luxury%20hairs"><img src="fb.png" alt=""></a>
+                <a href="https://www.instagram.com/starieluxuryhairs/"><img src="insta.png" alt=""></a>
+            </div>
+        </footer>
+    </section>
+   
+    <script src="products.js" defer></script>
+    <script>
+        const auth = document.querySelector(".auth");
+        const authmessage = document.getElementById("auth-message");
+        const box = document.querySelector(".box");
+
+
+        function showForm() {
+            auth.classList.add("active");
+            box.classList.add('blur');
+
+        }
+            window.onload = showForm;
+
+        function shutDown() {
+            auth.classList.remove('active');
+            box.classList.remove('blur');
+            showProduct();
+        }
+        
+    </script>
+</body>
+</html>
